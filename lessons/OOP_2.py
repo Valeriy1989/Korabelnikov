@@ -281,3 +281,90 @@ class DiscountedProduct(Product):
 
 product1 = DiscountedProduct("Ноутбук", 1000, 10)
 print (product1.get_price())
+
+
+
+
+# Задача 9
+#
+# Создай класс Device (устройство). При создании он принимает параметр brand (бренд). У него должен быть метод info, который возвращает строку: "Устройство бренда: <brand>".
+#
+# Создай класс Smartphone (смартфон), который наследуется от Device. При создании он принимает ещё один параметр — model (модель). Переопредели метод info так, чтобы он возвращал строку: "Смартфон <brand> <model>".
+#
+# Создай класс Tablet (планшет), который также наследуется от Device. При создании он тоже принимает дополнительный параметр model. Переопредели метод info так, чтобы он возвращал строку: "Планшет <brand> <model>".
+#
+# Напиши код для всех трёх классов. Создай по одному объекту каждого типа и выведи результат вызова их метода info на экран.
+
+class Device:
+    def __init__(self, brand):
+        self.brand = brand
+
+    def info(self):
+        return (f"Устройство бренда: {self.brand}")
+
+class Smartphone(Device):
+    def __init__(self, brand, model):
+        super().__init__(brand)
+        self.model = model
+
+    def info(self):
+        return f"Смартфон {self.brand} {self.model}"
+
+class Tablet(Device):
+    def __init__(self, brand, model):
+        super().__init__(brand)
+        self.model = model
+
+    def info(self):
+        return f"Планшет {self.brand} {self.model}"
+
+device_1 = Device("Xiaomi")
+print(device_1.info())
+
+device_2 = Smartphone("Xiaomi", "M4")
+print(device_2.info())
+
+device_3 = Tablet("Xiaomi", "M5")
+print(device_3.info())
+
+
+
+
+# Задача 10
+#
+# Создай класс Bird (птица). У него должен быть метод fly, который возвращает строку "Летает".
+#
+# Создай класс Penguin (пингвин), который наследуется от Bird. Переопредели метод fly так, чтобы он возвращал строку "Не летает".
+#
+# Создай класс Eagle (орёл), который наследуется от Bird. Оставь метод fly без изменений (пусть возвращает то же, что и у Bird).
+#
+# Создай класс Duck (утка), который наследуется от Bird. Добавь новый метод quack, который возвращает строку "Кря!".
+#
+# Напиши код для всех классов. Создай по одному объекту каждого типа (пингвин, орёл, утка). Для пингвина и орла вызови метод fly и выведи результат. Для утки вызови оба метода: fly и quack, и выведи результаты.
+
+class Bird:
+
+    def fly(self):
+        return "Летает"
+
+class Penguin(Bird):
+
+    def fly(self):
+        return "Не летает"
+
+class Eagle(Bird):
+    pass
+
+
+class Duck(Bird):
+
+    def quack(self):
+        return "Кря!"
+
+Bird_1 = Penguin()
+Bird_2 = Eagle()
+Bird_3 = Duck()
+print(Bird_1.fly())
+print(Bird_2.fly())
+print(Bird_3.fly())
+print(Bird_3.quack())
